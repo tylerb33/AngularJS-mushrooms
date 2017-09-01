@@ -1,0 +1,24 @@
+<h1>Options of mushrooms</h1>
+
+
+<form action="">
+    <input type="radio" name="mushroomType" value="false" ng-model="edible"> Poisonous<br>
+    <input type="radio" name="mushroomType" value="true" ng-model="edible"> Non-Poisonous<br>
+    <input type="text" ng-model="usersearch">
+</form>
+
+<section>
+	<!-- <div ng-repeat="item in mushrooms | filter:{usersearch}"> -->
+	<div ng-repeat="item in mushrooms | filter:{description:usersearch} | filter : edible">
+		<!--the # lets angular know that we are not refreshing, if you don't have that then page will refresh -->
+		<h2>{{item.name}}</h2>
+		<h3>{{item.description}}</h3>
+	</div>
+
+	<!-- <h2>The Milk Kind</h2>
+	<div ng-repeat="item in flavors">
+		<div ng-show="{{item.milk}}">
+			<a href="#/item/{{item.id}}">{{item.title}}</a>
+		</div>
+	</div> -->
+</section>
